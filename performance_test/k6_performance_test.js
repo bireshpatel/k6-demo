@@ -28,9 +28,9 @@ export const options = {
             maxVUs: 5,
             startTime: "0s",
             stages: [
-                {target: 200, duration: '1m' },
-                {target: 400, duration: '2m' },
-                {target: 200, duration: '4m' },
+                {target: 200, duration: '1s' },
+                {target: 400, duration: '3s' },
+                {target: 200, duration: '1s' },
             ],
             exec: 'getAllUsers',
         }
