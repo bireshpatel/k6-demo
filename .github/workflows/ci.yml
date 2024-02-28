@@ -46,3 +46,9 @@ jobs:
       
       - name: Run Functional Test
         run: k6 run functional_test/k6_functional_test.js
+      
+      - name: Download Artifact GitHub Action
+        uses: actions/upload-artifact@v3
+        with:
+          name: functional-test-results
+          path: results/functional_test_results
