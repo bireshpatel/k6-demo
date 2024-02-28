@@ -51,7 +51,11 @@ jobs:
       #- name: debug
       - run:  echo "OS Version by biresh ${{ github.event.inputs.os_type }}"
 
+      #- name: Install K6
+       # run:  brew install k6
+
       - name: Install K6
+        if: (${{github.event.inputs.os_type == 'macOS-latest'}})
         run:  brew install k6
       
       - name: K6 Version
