@@ -13,16 +13,16 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-  workflow_dispatch:
-    inputs:
-      test_type:
-        description: "Select Test Type"
-        required: true
-        type: choice
-        default: Functional
-        options:
-          - Functional
-          - Performance
+  # workflow_dispatch:
+   #  inputs:
+    #   test_type:
+     #    description: "Select Test Type"
+      #   required: true
+       #  type: choice
+        # default: Functional
+        # options:
+         #  - Functional
+         #  - Performance
           
 permissions:
   contents: read
