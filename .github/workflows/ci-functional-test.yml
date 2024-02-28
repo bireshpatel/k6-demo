@@ -55,8 +55,14 @@ jobs:
        # run:  brew install k6
 
       - name: Install K6
-        if: (${{ github.event.inputs.os_type }} == 'macOS-latest' )
-        run:  brew install k6
+        run: |
+          if [ ${{ github.event.inputs.os_type }} == 'macOS-latest' ]; then
+            brew install k6
+          elif: ${{ github.event.inputs.os_type }} == 'windows-latest' ]; then
+            choco install k6
+          else
+            echo "Please select an OS to run the test"
+          fi
       
       - name: K6 Version
         run: k6 --version
