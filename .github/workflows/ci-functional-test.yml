@@ -56,7 +56,7 @@ jobs:
 
       - name: Install K6
         run:  brew install k6
-        if: (github.event.inputs.os_type == 'macOS-latest')
+        if: (${{ github.event.inputs.os_type }} == 'macOS-latest')
       
       - name: K6 Version
         run: k6 --version
