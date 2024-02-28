@@ -30,7 +30,7 @@ permissions:
 jobs:
   my_first_job:
     name: Functional Test
-    runs-on: macOS-latest
+    runs-on: ${{ github.event.inputs.os_type || 'macOS-latest' }}
     #strategy:
      #  matrix:
       #   os: ${{ inputs.os_type }}
