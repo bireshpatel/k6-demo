@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Setup repo
@@ -36,10 +36,7 @@ jobs:
       #   run: deno fmt --check
 
       - name: Install K6
-        run:  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
-              echo "deb https://dl.k6.io/deb stable main" | sudo tee -a /etc/apt/sources.list
-              sudo apt-get update
-              sudo apt-get install k6
+        run:  choco install k6
       
       - name: Basic command
         run: k6 --version
