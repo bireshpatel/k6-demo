@@ -19,7 +19,10 @@ permissions:
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [windows-latest, macOS-latest]
 
     steps:
       - name: Setup repo
@@ -38,8 +41,8 @@ jobs:
       - name: Install K6
         run:  choco install k6
       
-      - name: Basic command
+      - name: K6 Version
         run: k6 --version
       
-      - name: Run functional test
+      - name: Run Functional Test
         run: k6 run functional_test/k6_functional_test.js
