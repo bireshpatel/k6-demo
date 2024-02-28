@@ -30,10 +30,10 @@ permissions:
 jobs:
   my_first_job:
     name: Functional Test
-    runs-on: ${{ github.event.inputs.options }}
-    #strategy:
-     # matrix:
-      #  os: [macOS-latest]
+    runs-on: ${{matrix.os}}
+    strategy:
+       matrix:
+         os: ${{ github.event.inputs.options }}
 
     steps:
       - name: Setup repo
