@@ -6,14 +6,24 @@
 # This workflow will install Deno then run `deno lint` and `deno test`.
 # For more information see: https://github.com/denoland/setup-deno
 
-name: Run k6 - functional test in cloud
+name: Run k6 - Functional Test in Cloud
 
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: "Select Test Type"
+        required: true
+        type: choice
+        default: Functional
+        options:
+          - Functional
+          - Performance
+          
 permissions:
   contents: read
 
