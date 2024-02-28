@@ -30,7 +30,7 @@ permissions:
 jobs:
   my_first_job:
     name: Functional Test
-    runs-on: ${{ github.event.inputs.os_type }}
+    runs-on: macOS-latest
     #strategy:
      #  matrix:
       #   os: ${{ inputs.os_type }}
@@ -47,6 +47,9 @@ jobs:
       # Uncomment this step to verify the use of 'deno fmt' on each commit.
       # - name: Verify formatting
       #   run: deno fmt --check
+
+      #- name: debug
+      - run:  echo "OS Version by biresh ${{ github.event.inputs.os_type }}"
 
       - name: Install K6
         run:  brew install k6
