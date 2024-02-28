@@ -41,5 +41,8 @@ jobs:
               sudo apt-get update
               sudo apt-get install k6
       
+      - name: Basic command
+        run: k6 --version
+      
       - name: Run functional test
         run: k6 run functional_test/k6_functional_test.js
