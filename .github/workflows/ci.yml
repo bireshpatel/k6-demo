@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [windows-latest, macOS-latest]
+        os: [macOS-latest]
 
     steps:
       - name: Setup repo
@@ -39,7 +39,7 @@ jobs:
       #   run: deno fmt --check
 
       - name: Install K6
-        run:  choco install k6
+        run:  brew install k6
       
       - name: K6 Version
         run: k6 --version
