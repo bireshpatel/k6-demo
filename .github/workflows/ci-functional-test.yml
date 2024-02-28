@@ -15,7 +15,7 @@ on:
     branches: ["main"]
   workflow_dispatch:
       inputs:
-       test_type:
+       os_type:
          description: "Select OS to Run"
          required: true
          type: choice
@@ -30,10 +30,10 @@ permissions:
 jobs:
   my_first_job:
     name: Functional Test
-    runs-on: ${{matrix.os}}
-    strategy:
-       matrix:
-         os: ${{ inputs.options }}
+    runs-on: ${{ inputs.options }}
+    #strategy:
+     #  matrix:
+      #   os: ${{ inputs.os_type }}
 
     steps:
       - name: Setup repo
