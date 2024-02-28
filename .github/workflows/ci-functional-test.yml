@@ -55,13 +55,13 @@ jobs:
        # run:  brew install k6
 
       - name: Install K6 for empty
-        if: ${{ github.event.inputs.os_type == "" }}
+        if: ${{ github.event.inputs.os_type == '' }}
         run: |
           echo "macOS installing..."
           brew install k6
       
       - name: Install K6 for windows
-        if: ${{ github.event.inputs.os_type == "windows-latest" }}
+        if: ${{ github.event.inputs.os_type == 'windows-latest' }}
         run: |
           echo "windows installing..."
           choco install k6
