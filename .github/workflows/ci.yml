@@ -13,22 +13,14 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-  # workflow_dispatch:
-   #  inputs:
-    #   test_type:
-     #    description: "Select Test Type"
-      #   required: true
-       #  type: choice
-        # default: Functional
-        # options:
-         #  - Functional
-         #  - Performance
+  workflow_dispatch:
           
 permissions:
   contents: read
 
 jobs:
-  test:
+  my_first_job:
+    name: Functional Test
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
