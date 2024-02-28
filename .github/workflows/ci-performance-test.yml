@@ -45,8 +45,8 @@ jobs:
       - name: K6 Version
         run: k6 --version
       
-      - name: Run Functional Test
-        run: k6 run functional_test/k6_performance_test.js
+      - name: Run Performance Test
+        run: k6 run performance_test/k6_performance_test.js
       
       - name: Download Artifact GitHub Action
         uses: actions/upload-artifact@v4
