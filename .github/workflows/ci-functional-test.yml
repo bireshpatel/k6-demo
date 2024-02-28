@@ -30,7 +30,7 @@ permissions:
 jobs:
   my_first_job:
     name: Functional Test
-    runs-on: ${{ inputs.options }}
+    runs-on: ${{ inputs.os_type }}
     #strategy:
      #  matrix:
       #   os: ${{ inputs.os_type }}
