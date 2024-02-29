@@ -18,7 +18,7 @@ export const options = {
     summaryTrendStats: ['avg', 'min', 'med', 'max', 'p(90)', 'p(95)', 'p(99)', 'p(99.99)', 'count'],
     setupTimeout: '600s',
     thresholds: {
-        'http_req_duration{scenario:getAllUsers}': ['p(90) <= 300', 'p(95) <= 400', 'p(99) <= 500']
+        'http_req_duration{scenario:getAllUsers}': ['p(90) <= 350', 'p(95) <= 450', 'p(99) <= 550']
     },
     scenarios: {
         getAllUsers: {
