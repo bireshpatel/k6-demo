@@ -14,6 +14,15 @@ on:
   pull_request:
     branches: ["main"]
   workflow_dispatch:
+      inputs:
+       os_type:
+         description: "Select OS to Run"
+         required: true
+         type: choice
+         default: macOS-latest
+         options:
+           - macOS-latest
+           - windows-latest
           
 permissions:
   contents: read
@@ -21,10 +30,10 @@ permissions:
 jobs:
   my_first_job:
     name: Performance Test
-    runs-on: ${{matrix.os}}
-    strategy:
-      matrix:
-        os: [macOS-latest]
+    runs-on: ${{ github.event.inputs.os_type || 'macOS-latest' }}
+    #strategy:
+     #  matrix:
+      #   os: ${{ inputs.os_type }}
 
     steps:
       - name: Setup repo
@@ -35,12 +44,23 @@ jobs:
         with:
           deno-version: canary
 
-      # Uncomment this step to verify the use of 'deno fmt' on each commit.
-      # - name: Verify formatting
-      #   run: deno fmt --check
-
-      - name: Install K6
-        run:  brew install k6
+      - name: Install K6 for no OS selected
+        if: ${{ github.event.inputs.os_type == '' }}
+        run: |
+          echo "macOS installing..."
+          brew install k6
+      
+      - name: Install K6 for Windows
+        if: ${{ github.event.inputs.os_type == 'windows-latest' }}
+        run: |
+          echo "Windows installing..."
+          choco install k6
+      
+      - name: Install K6 for macOS
+        if: ${{ github.event.inputs.os_type == 'macOS-latest' }}
+        run: |
+          echo "macOS installing..."
+          brew install k6
       
       - name: K6 Version
         run: k6 --version
