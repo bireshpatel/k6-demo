@@ -44,13 +44,13 @@ jobs:
         with:
           deno-version: canary
 
-      - name: Install K6 for no OS selected
+      - name: Install k6 on default macOS
         if: ${{ github.event.inputs.os_type == '' }}
         run: |
           echo "macOS installing..."
           brew install k6
       
-      - name: Install K6 for Windows
+      - name: Install k6 for Windows
         if: ${{ github.event.inputs.os_type == 'windows-latest' }}
         run: |
           echo "Windows installing..."
@@ -62,7 +62,7 @@ jobs:
           echo "macOS installing..."
           brew install k6
       
-      - name: K6 Version
+      - name: k6 Version
         run: k6 --version
       
       - name: Run Functional Test
